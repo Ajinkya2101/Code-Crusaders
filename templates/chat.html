@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with AI Assistant</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0e1117;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #262730;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .navbar-brand, nav ul li a {
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #007bff;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .custom-container, .form-control, .btn, .response-area {
+            border-radius: 15px; /* Rounded edges for all containers, inputs, buttons */
+        }
+
+        .custom-container {
+            background-color: #333;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .form-control{
+            width: 93%;
+            padding: 10px 20px;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 10px 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .response-area {
+            background-color: #262730;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">ChurnSpark</a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link" href="/analysis">Analysis</a>
+            <a class="nav-item nav-link" href="/plot">View Probability Distribution</a>
+            <a class="nav-item nav-link active" href="/chat">Chat</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>AI Assistant</h1>
+        <div class="custom-container">
+            <form method="POST">
+                <input type="text" class="form-control" name="user_input" placeholder="Write your query..." required>
+                <button type="submit" class="btn">Send</button>
+            </form>
+            <!-- Response Area -->
+            <div class="response-area" id="responseArea">
+                <!-- Placeholder for model's response -->
+                {% if gemini_response %}
+                <p id="gemini_response">{{ gemini_response }}</p>
+                {% else %}
+                <p id="gemini_response">Your AI response will appear here...</p>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>

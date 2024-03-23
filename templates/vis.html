@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0e1117;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #262730;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.5s ease;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #007bff;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a class="navbar-brand" href="/">ChurnSpark</a>
+        <ul>
+            <li><a class="nav-item nav-link" href="/">Home</a></li>
+            <li><a class="nav-item nav-link" href="/faq">FAQs</a></li>
+            <li><a class="nav-item nav-link active" href="/vis">Visualizations</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Ensure the path to the image is correct -->
+        <img src="static/images/image.png" alt="Visualization">
+    </div>
+    
+</body>
+</html>

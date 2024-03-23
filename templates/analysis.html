@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Churn Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+
+                /* Adjust the table width and set text color */
+        .results-table {
+            width: 60%; /* Adjust the width as necessary */
+            margin-left: auto;
+            margin-right: auto;
+            color: #fff; /* Set font color to white */
+        }
+
+        /* Ensure the table headers and cells have white text for readability */
+        .results-table th, .results-table td {
+            color: #fff; /* White text color */
+        }
+
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0e1117;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #262730;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.5s ease;
+        }
+
+        nav .navbar-brand, nav ul li a {
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #007bff;
+        }
+
+        .container h2, .container h3, .container p, .alert {
+            text-align: center;
+        }
+
+        .results-table {
+            background-color: #333; /* Matching the card color */
+            margin-bottom: 20px;
+        }
+
+        .results-table th, .results-table td {
+            border-color: #454d55; /* A bit darker to distinguish the cell borders */
+        }
+
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">ChurnSpark</a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link active" href="/analysis">Analysis</a>
+            <a class="nav-item nav-link" href="/plot">View Probability Distribution</a>
+            <a class="nav-item nav-link" href="/chat">Chat</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Upload CSV for Churn Prediction</h2>
+        <form action="/analysis" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">CSV File:</label>
+                <input type="file" class="form-control-file" id="file" name="file" accept=".csv" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload and Predict</button>
+        </form>
+    </div>
+    {% if warning %}
+    <div class="alert alert-warning" role="alert">
+      {{ warning }}
+    </div>
+    {% endif %}
+
+    {% if predictions_details %}
+    <div class="results-container">
+        <table class="table results-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Prediction</th>
+                    <th>Probability</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for detail in predictions_details %}
+                <tr>
+                    <td>{{ detail[0] }}</td>
+                    <td>{{ detail[1] }}</td>
+                    <td>{{ detail[2] | round(2) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No predictions to display.</p>
+    {% endif %}
+
+</body>
+</html>
