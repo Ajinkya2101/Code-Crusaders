@@ -82,14 +82,11 @@ Tools Used
 Python: The entire EDA is conducted using Python.
 
 Libraries:
+
 pandas for data manipulation.
-
 numpy for numerical operations.
-
 matplotlib and seaborn for data visualization.
-
 sklearn for preprocessing and feature scaling.
-
 
 Conclusion
 The EDA revealed key factors associated with customer churn, such as the method of payment, contract types, and service features. The visualizations and analysis helped uncover important insights that can be used to inform retention strategies.
@@ -97,11 +94,8 @@ The EDA revealed key factors associated with customer churn, such as the method 
 Key Insights:
 
 Electronic check payments have the highest churn rate.
-
 Monthly contract customers are more likely to churn.
-
 Lack of online security and technical support increases the likelihood of churn.
-
 Non-senior citizens are more prone to churn.
 
 The EDA process provides a foundational understanding of the data and prepares the way for further analysis, such as building predictive models to forecast churn.
