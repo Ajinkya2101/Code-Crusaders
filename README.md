@@ -16,7 +16,7 @@ Conversion to numerical types when necessary:
 
 telco_data['TotalCharges'] = pd.to_numeric(telco_data['TotalCharges'], errors='coerce')
 
-4. Feature Engineering
+3. Feature Engineering
 Categorical Variables: Convert categorical variables like gender, Partner, Dependents into numerical forms using dummy encoding.
 telco_data_dummies = pd.get_dummies(telco_data)
 
@@ -32,7 +32,7 @@ Code examples:
 sns.countplot(x='Churn', data=telco_data)
 sns.histplot(telco_data['tenure'], kde=True)
 
-6. Bivariate Analysis
+5. Bivariate Analysis
 Understanding relationships between variables:
 Relationships between Churn and other features (like Contract, PaymentMethod, etc.) are explored through visualizations:
 Count plots are used to see the impact of categorical features on churn:
@@ -53,14 +53,14 @@ sns.heatmap(corr_matrix, annot=True)
 Key insights:
 Churn is positively correlated with MonthlyCharges but negatively correlated with tenure.
 
-8. Insights from Data
+7. Insights from Data
 Insights Derived:
 Payment Method: Electronic check payment methods show higher churn rates.
 Contract Type: Monthly customers have the highest churn due to flexibility in contracts.
 Online Security and Tech Support: Customers without these services show higher churn rates.
 Senior Citizens: Non-senior citizens have a higher churn rate.
 
-9. Visualizations
+8. Visualizations
 Detailed Visualizations:
 Various visualizations are created to better understand the data, including:
 Bar plots for categorical features
